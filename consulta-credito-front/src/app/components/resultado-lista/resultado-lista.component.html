@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Resultados para NFS-e: {{ numeroNfse }}</h2>
+  
+    <p *ngIf="erro" class="erro">{{ erro }}</p>
+  
+    <table *ngIf="creditos.length > 0">
+      <thead>
+        <tr>
+          <th>Nº Crédito</th>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>Valor ISSQN</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let credito of creditos">
+          <td>{{ credito.numeroCredito }}</td>
+          <td>{{ credito.dataConstituicao }}</td>
+          <td>{{ credito.tipoCredito }}</td>
+          <td>R$ {{ credito.valorIssqn | number:'1.2-2' }}</td>
+          <td><a [routerLink]="['/credito', credito.numeroCredito]">Detalhes</a></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="creditos.length === 0 && !erro">Nenhum crédito encontrado.</p>
+  </div>
+  

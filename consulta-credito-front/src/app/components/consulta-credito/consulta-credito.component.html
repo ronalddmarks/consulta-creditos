@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Consulta por Número do Crédito</h2>
+    <input [(ngModel)]="numeroCredito" placeholder="Digite o número do crédito" />
+    <button [disabled]="!numeroCredito" (click)="consultar()">Buscar</button>
+    <div *ngIf="carregando">Carregando...</div>
+  
+    <div *ngIf="erro" style="color: red;">{{ erro }}</div>
+</div>
+
+<div *ngIf="credito" class="credito-detalhes">
+    <h3>Dados do Crédito</h3>
+    <p><strong>Número Crédito:</strong> {{ credito.numeroCredito }}</p>
+    <p><strong>Número NFS-e:</strong> {{ credito.numeroNfse }}</p>
+    <p><strong>Data:</strong> {{ credito.dataConstituicao }}</p>
+    <p><strong>Valor ISSQN:</strong> {{ credito.valorIssqn }}</p>
+    <p><strong>Tipo:</strong> {{ credito.tipoCredito }}</p>
+    <p><strong>Simples Nacional:</strong> {{ credito.simplesNacional ? 'Sim' : 'Não' }}</p>
+    <p><strong>Aliquota:</strong> {{ credito.aliquota }}</p>
+    <p><strong>Valor Faturado:</strong> {{ credito.valorFaturado }}</p>
+    <p><strong>Valor Dedução:</strong> {{ credito.valorDeducao }}</p>
+    <p><strong>Base de Cálculo:</strong> {{ credito.baseCalculo }}</p>
+</div>
+  

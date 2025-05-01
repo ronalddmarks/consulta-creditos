@@ -1,0 +1,52 @@
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .tabela-container {
+    max-width: 80%;
+    margin: 40px auto 0 auto;
+    overflow-x: auto;
+  }
+  
+  table {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  th, td {
+    padding: 6px 8px;
+    white-space: nowrap;
+    text-align: center;
+  }
+  th {
+    background-color: #f0f0f0;
+  }
+  
+  .erro {
+    color: red;
+    margin-top: 10px;
+  }
+  

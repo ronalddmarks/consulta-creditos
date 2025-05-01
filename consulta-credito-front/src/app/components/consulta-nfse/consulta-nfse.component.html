@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Consulta por NFS-e</h2>
+
+  <input [(ngModel)]="numeroNfse" placeholder="Digite o número da NFS-e" />
+  <button [disabled]="!numeroNfse" (click)="consultar()">Buscar</button>
+
+  <div *ngIf="carregando">Carregando...</div>
+
+  <div *ngIf="erro" style="color: red;">
+    {{ erro }}
+  </div>
+</div>
+
+<div class="tabela-container" *ngIf="creditos.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Nº Crédito</th>
+        <th>NFS-e</th>
+        <th>Data</th>
+        <th>Valor ISSQN</th>
+        <th>Tipo</th>
+        <th>Simples</th>
+        <th>Alíquota</th>
+        <th>Faturado</th>
+        <th>Deducao</th>
+        <th>Base Cálculo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of creditos">
+        <td>{{ c.numeroCredito }}</td>
+        <td>{{ c.numeroNfse }}</td>
+        <td>{{ c.dataConstituicao }}</td>
+        <td>{{ c.valorIssqn }}</td>
+        <td>{{ c.tipoCredito }}</td>
+        <td>{{ c.simplesNacional ? 'Sim' : 'Não' }}</td>
+        <td>{{ c.aliquota }}</td>
+        <td>{{ c.valorFaturado }}</td>
+        <td>{{ c.valorDeducao }}</td>
+        <td>{{ c.baseCalculo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
