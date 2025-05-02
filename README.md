@@ -63,7 +63,7 @@ Este comando:
 Para ver as mensagens publicadas no Kafka, execute o seguinte comando no terminal:
 
 ```bash
-#Execute esse comando para descobrir o nome do container kafka.
+#Execute esse comando para listar todos os containers e descobrir o nome do container kafka.
 docker ps
 
 #Adicione o nome do container no lugar de 'nome_container' e execute o comando.
