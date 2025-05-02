@@ -20,7 +20,7 @@ Este projeto é uma aplicação full-stack composta por uma **API RESTful** em S
 Antes de iniciar, verifique se você tem instalado:
 
 - [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [Git](https://git-scm.com/downloads)
 
 ---
 
