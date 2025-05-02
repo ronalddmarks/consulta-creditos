@@ -12,6 +12,7 @@ Este projeto é uma aplicação full-stack composta por uma **API RESTful** em S
 - **Banco de dados:** PostgreSQL
 - **Containerização:** Docker, Docker Compose
 - **Testes:** JUnit 5, Mockito
+- **Mensageria:** Kafca
 
 
 ## 📋 Pré-requisitos
@@ -53,5 +54,47 @@ Este comando:
 | API (backend) | http://localhost:8080/api/creditos/credito/123456      |
 | API (backend) | http://localhost:8080/api/creditos/7891011             |
 | PostgreSQL    | localhost:5432                                         |
+| Kafca         | localhost:9092                                         |
 
 ---
+
+## 📡 Como visualizar mensagens Kafka
+
+Para ver as mensagens publicadas no Kafka, execute o seguinte comando no terminal:
+
+```bash
+#Execute esse comando para descobrir o nome do container kafka.
+docker ps
+
+#Adicione o nome do container no lugar de 'nome_container' e execute o comando.
+docker exec -it nome_container bash bash
+
+#Execute esse comando para exibir o log do kafka.
+kafka-console-consumer --bootstrap-server localhost:9092 --topic consulta-creditos --from-beginning
+
+```
+
+> Esse comando abre um consumidor Kafka que escuta o tópico e exibe as mensagens enviadas a partir do início.
+
+## ✅ Testes
+
+Para rodar os testes unitários.
+
+Antes de iniciar, verifique se você tem instalado:
+
+- [Java 17] – necessário para compilar a aplicação
+
+- [Docker] - necessario levantar um container postgres.
+
+```bash
+#Execute esse comando para levantar um container docker postgres
+docker run --name postgres-creditos -e POSTGRES_DB=creditodb -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:15
+
+#Acesse o diretorio do projeto backend.
+cd api-creditos
+#Execute esse comando para rodar os testes.
+./mvnw test
+```
+
+---
+
